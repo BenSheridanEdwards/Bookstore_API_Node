@@ -1,0 +1,22 @@
+{
+  "name": "store_api_node",
+  "version": "1.0.0",
+  "description": "A Node.js Simple Shop/Store RESTful API ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenSheridanEdwards/Store_API_Node.git"
+  },
+  "author": "Ben Sheridan-Edwards",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenSheridanEdwards/Store_API_Node/issues"
+  },
+  "homepage": "https://github.com/BenSheridanEdwards/Store_API_Node#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
