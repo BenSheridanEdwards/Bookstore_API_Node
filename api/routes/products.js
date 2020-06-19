@@ -26,9 +26,9 @@ router.post('/', (req, res, next) => {
       });
     })
     .catch(err => {
-      console.log(err)
+      console.log(err);
       res.status(500).json({
-        error: err
+        error: err,
       });
     });
 });
@@ -38,12 +38,12 @@ router.get('/:productId', (req, res, next) => {
   Product.findById(id)
     .exec()
     .then(doc => {
-      console.log("From database", doc);
+      console.log('From database', doc);
       res.status(200).json(doc);
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
     });
 });
 
