@@ -66,9 +66,9 @@ router.patch('/:productId', (req, res, next) => {
   const id = req.params.productId;
   const updateOps = {};
   for (const ops of req.body) {
-    updateOps[ops.propsName] = ops.value;
+    updateOps[ops.propName] = ops.value;
   }
-  Product.update({ _id: id }, { $set: { name: updateOps } })
+  Product.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       console.log(result);
