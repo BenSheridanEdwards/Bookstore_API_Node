@@ -67,11 +67,24 @@ router.post('/', (req, res, next) => {
 router.get('/:productId', (req, res, next) => {
   const id = req.params.productId;
   Product.findById(id)
+    .select('name price _id')
     .exec()
     .then(doc => {
-      console.log('From database', doc);
+      console.log(doc);
       if (doc) {
-        res.status(200).json(doc);
+        const response = {
+          product: {
+            name: doc.name,
+            price: doc.price,
+            _id: doc._id,
+          },
+          request: {
+            message: 'Get all products',
+            type: 'GET',
+            url: 'http://localhost:3000/products',
+          },
+        };
+        res.status(200).json(response);
       } else {
         res.status(404).json({ message: 'No valid entry for provided ID' })
       }
