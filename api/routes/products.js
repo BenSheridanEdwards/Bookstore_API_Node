@@ -17,9 +17,9 @@ router.get('/', (req, res, next) => {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: `http://localhost:3000/products/${doc._id}`
+            url: `http://localhost:3000/products/${doc._id}`,
           },
-          })),
+        })),
       };
       console.log(docs);
       res.status(200).json(response);
@@ -41,19 +41,20 @@ router.post('/', (req, res, next) => {
   product
     .save()
     .then(result => {
-      console.log(result);
-      res.status(201).json({
+      const response = {
         message: 'Created product successfully',
-        createdProduct: {
+        createdProdcut: {
           name: result.name,
           price: result.price,
           _id: result._id,
           request: {
             type: 'GET',
-            url: `http://localhost:3000/products${result._id}`,
+            url: `http://localhost:3000/products/${result._id}`,
           },
         },
-      });
+      };
+      console.log(result);
+      res.status(201).json(response);
     })
     .catch(err => {
       console.log(err);
