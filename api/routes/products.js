@@ -2,7 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 const mongoose = require('mongoose');
-
 const Product = require('../models/product');
 
 router.get('/', (req, res, next) => {
@@ -46,8 +45,16 @@ router.post('/', (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(201).json({
-        message: 'Handling POST requests to /products',
-        createdProduct: result,
+        message: 'Created product successfully',
+        createdProduct: {
+          name: result.name,
+          price: result.price,
+          _id: result._id,
+          request: {
+            type: 'GET',
+            url: `http://localhost:3000/products${result._id}`,
+          },
+        },
       });
     })
     .catch(err => {
