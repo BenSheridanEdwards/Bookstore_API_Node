@@ -7,10 +7,25 @@ const Product = require('../models/product');
 
 router.get('/', (req, res, next) => {
   Product.find()
+    .select('name price _id')
     .exec()
     .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs.map(doc => {
+          return {
+            name: doc.name,
+            price: doc.price,
+            _id: doc._id,
+            request: {
+              type: 'GET',
+              url: `http://localhost:3000/products/${doc._id}`
+            },
+          };
+        }),
+      };
       console.log(docs);
-      res.status(200).json(docs);
+      res.status(200).json(response);
     })
     .catch(err => {
       console.log(err);
