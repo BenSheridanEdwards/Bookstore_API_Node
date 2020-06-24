@@ -41,7 +41,8 @@ router.post('/', (req, res, next) => {
   product
     .save()
     .then(result => {
-      const response = {
+      console.log(result);
+      res.status(201).json({
         message: 'Created product successfully',
         createdProdcut: {
           name: result.name,
@@ -52,9 +53,7 @@ router.post('/', (req, res, next) => {
             url: `http://localhost:3000/products/${result._id}`,
           },
         },
-      };
-      console.log(result);
-      res.status(201).json(response);
+      });
     })
     .catch(err => {
       console.log(err);
