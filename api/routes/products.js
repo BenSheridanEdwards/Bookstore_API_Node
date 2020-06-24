@@ -9,7 +9,8 @@ router.get('/', (req, res, next) => {
     .select('name price _id')
     .exec()
     .then(docs => {
-      const response = {
+      console.log(docs);
+      res.status(200).json({
         count: docs.length,
         products: docs.map(doc => ({
           name: doc.name,
@@ -20,9 +21,7 @@ router.get('/', (req, res, next) => {
             url: `http://localhost:3000/products/${doc._id}`,
           },
         })),
-      };
-      console.log(docs);
-      res.status(200).json(response);
+      });
     })
     .catch(err => {
       console.log(err);
