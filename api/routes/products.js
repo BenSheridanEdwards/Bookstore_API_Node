@@ -107,7 +107,14 @@ router.patch('/:productId', (req, res, next) => {
     .exec()
     .then(result => {
       console.log(result);
-      res.status(200).json(result);
+      res.status(200).json({
+        message: 'Updated product successfully',
+        request: {
+          message: 'See updated product',
+          type: 'GET',
+          url: `http://localhost:3000/products/${id}`,
+        }
+      });
     })
     .catch(err => {
       console.log(err);
@@ -122,7 +129,18 @@ router.delete('/:productId', (req, res, next) => {
   Product.remove({ _id: id })
     .exec()
     .then(result => {
-      res.status(200).json(result);
+      res.status(200).json({
+        message: 'Product deleted',
+        request: {
+          message: 'Create a new product with a post request',
+          type: 'POST',
+          url: 'http://localhost:3000/products/',
+          body: {
+            name: 'String',
+            price: 'Number',
+          },
+        },
+      });
     })
     .catch(err => {
       console.log(err);
