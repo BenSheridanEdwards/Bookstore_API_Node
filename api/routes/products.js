@@ -110,7 +110,7 @@ router.patch('/:productId', (req, res, next) => {
           message: 'See updated product',
           type: 'GET',
           url: `http://localhost:3000/products/${id}`,
-        }
+        },
       });
     })
     .catch(err => {

@@ -7,7 +7,7 @@ const Order = require('../models/order');
 router.get('/', (req, res, next) => {
   res.status(200).json({
     message: 'Ordered were fetched',
-  })
+  });
 });
 
 router.post('/', (req, res, next) => {
@@ -17,21 +17,21 @@ router.post('/', (req, res, next) => {
   };
   res.status(201).json({
     message: 'Ordered was created',
-    order: order,
+    order,
   });
 });
 
 router.get('/:orderId', (req, res, next) => {
   res.status(200).json({
     message: 'Order details',
-    orderId: req.params.orderId
+    orderId: req.params.orderId,
   });
 });
 
 router.delete('/:orderId', (req, res, next) => {
   res.status(200).json({
     message: 'Order delete',
-    orderId: req.params.orderId
+    orderId: req.params.orderId,
   });
 });
 
