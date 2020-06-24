@@ -72,7 +72,7 @@ router.get('/:productId', (req, res, next) => {
     .then(doc => {
       console.log(doc);
       if (doc) {
-        const response = {
+        res.status(200).json({
           product: {
             name: doc.name,
             price: doc.price,
@@ -83,10 +83,9 @@ router.get('/:productId', (req, res, next) => {
             type: 'GET',
             url: 'http://localhost:3000/products',
           },
-        };
-        res.status(200).json(response);
+        });
       } else {
-        res.status(404).json({ message: 'No valid entry for provided ID' })
+        res.status(404).json({ message: 'No valid entry for provided ID' });
       }
     })
     .catch(err => {
