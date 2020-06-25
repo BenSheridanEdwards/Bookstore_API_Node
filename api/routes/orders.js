@@ -5,9 +5,24 @@ const mongoose = require('mongoose');
 const Order = require('../models/order');
 
 router.get('/', (req, res, next) => {
-  res.status(200).json({
-    message: 'Ordered were fetched',
-  });
+  Order.find()
+    .exec()
+    .then(docs => {
+      res.status(200).json({
+        count: docs.length,
+        orders: docs.map(doc => ({
+          product: doc.product,
+          quantity: doc.quantity,
+          request: {
+            type: 'GET',
+            url: `http://localhost:3000/orders/${doc._id}`,
+          },
+        })),
+      });
+    })
+    .catch(err => {
+      res.status(500).json({ error: err });
+    });
 });
 
 router.post('/', (req, res, next) => {
