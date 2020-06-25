@@ -14,6 +14,7 @@ router.get('/', (req, res, next) => {
         orders: docs.map(doc => ({
           product: doc.product,
           quantity: doc.quantity,
+          orderId: doc._id,
           request: {
             type: 'GET',
             url: `http://localhost:3000/orders/${doc._id}`,
