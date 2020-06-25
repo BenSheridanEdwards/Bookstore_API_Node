@@ -27,41 +27,41 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  Product.findById(req.body.productId)
-    .then(product => {
-      if (!product) {
-        res.status(500).json({
-          message: 'Product not found',
-        });
-      }
-      const order = new Order({
-        _id: mongoose.Types.ObjectId(),
-        quantity: req.body.quantity,
-        product: req.body.productId,
+  Product.findById(req.body.productId).then(product => {
+    if (!product) {
+      return res.status(500).json({
+        message: 'Product not found',
       });
-      return order.save();
-    })
-    .then(result => {
-      console.log(result);
-      res.status(201).json({
-        message: 'Order successfully created',
-        createdOrder: {
-          _id: result._id,
-          product: result.product,
-          quantity: result.quantity,
-        },
-        request: {
-          type: 'GET',
-          url: `http://localhost:3000/orders/${result._id}`,
-        },
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
+    }
+    const order = new Order({
+      _id: mongoose.Types.ObjectId(),
+      quantity: req.body.quantity,
+      product: req.body.productId,
     });
+    order
+      .save()
+      .then(result => {
+        console.log(result);
+        res.status(201).json({
+          message: 'Order successfully created',
+          createdOrder: {
+            _id: result._id,
+            product: result.product,
+            quantity: result.quantity,
+          },
+          request: {
+            type: 'GET',
+            url: `http://localhost:3000/orders/${result._id}`,
+          },
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err,
+        });
+      });
+  });
 });
 
 router.get('/:orderId', (req, res, next) => {
