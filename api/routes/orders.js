@@ -37,7 +37,15 @@ router.post('/', (req, res, next) => {
       console.log(result);
       res.status(201).json({
         message: 'Order successfully created',
-        result,
+        createdOrder: {
+          _id: result._id,
+          product: result.product,
+          quantity: result.quantity,
+        },
+        request: {
+          type: 'GET',
+          url: `http://localhost:3000/orders/${result._id}`,
+        },
       });
     })
     .catch(err => {
