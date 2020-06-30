@@ -73,7 +73,7 @@ router.post('/', upload.single('productImage'), (req, res, next) => {
       console.log(result);
       res.status(201).json({
         message: 'Created product successfully',
-        createdProdcut: {
+        createdProduct: {
           name: result.name,
           price: result.price,
           image: result.productImage,
