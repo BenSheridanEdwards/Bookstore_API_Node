@@ -51,7 +51,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.delete('/:userId', (req, res, next) => {
-  User.remove({ _id: req.params.id })
+  User.remove({ _id: req.params.userId })
     .exec()
     .then(result => {
       console.log(result);
