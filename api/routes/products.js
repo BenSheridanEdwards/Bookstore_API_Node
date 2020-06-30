@@ -4,7 +4,16 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const multer = require('multer');
 
-const upload = multer({ dest: 'uploads/' });
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, './uploads/');
+  },
+  filename(req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  },
+});
+
+const upload = multer({ storage });
 const Product = require('../models/product');
 
 router.get('/', (req, res, next) => {
