@@ -10,7 +10,7 @@ const orderRoutes = require('./api/routes/orders');
 
 mongoose.connect(
   `mongodb+srv://BenSE:${process.env.MONGO_ATLAS_PW}@node-store-api-vsila.mongodb.net/<dbname>?retryWrites=true&w=majority`,
-  { useUnifiedTopology: true, useNewUrlParser: true }
+  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 );
 
 app.use(morgan('dev'));
