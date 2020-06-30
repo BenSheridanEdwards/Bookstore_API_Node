@@ -50,4 +50,21 @@ router.post('/signup', (req, res, next) => {
     });
 });
 
+router.delete('/:userId', (req, res, next) => {
+  User.remove({ _id: req.params.id })
+    .exec()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: 'User deleted',
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+});
+
 module.exports = router;
