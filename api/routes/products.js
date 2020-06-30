@@ -65,7 +65,7 @@ router.post('/', upload.single('productImage'), (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     price: req.body.price,
-    productImage: req.file.path,
+    productImage: `http://localhost:3000/${req.file.path}`,
   });
   product
     .save()
@@ -76,6 +76,7 @@ router.post('/', upload.single('productImage'), (req, res, next) => {
         createdProdcut: {
           name: result.name,
           price: result.price,
+          image: result.productImage,
           _id: result._id,
           request: {
             type: 'GET',
