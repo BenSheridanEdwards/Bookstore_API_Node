@@ -30,6 +30,39 @@ exports.get_all = (req, res, next) => {
     });
 };
 
+exports.get_product = (req, res, next) => {
+  const id = req.params.productId;
+  Product.findById(id)
+    .select('name price _id productImage')
+    .exec()
+    .then(doc => {
+      console.log(doc);
+      if (doc) {
+        res.status(200).json({
+          product: {
+            name: doc.name,
+            price: doc.price,
+            image: doc.productImage,
+            _id: doc._id,
+          },
+          request: {
+            message: 'Get all products',
+            type: 'GET',
+            url: 'http://localhost:3000/products',
+          },
+        });
+      } else {
+        res.status(404).json({ message: 'No valid entry for provided ID' });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
+
 exports.create_product = (req, res, next) => {
   console.log(req.file);
   const product = new Product({
@@ -55,39 +88,6 @@ exports.create_product = (req, res, next) => {
           },
         },
       });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
-};
-
-exports.get_product = (req, res, next) => {
-  const id = req.params.productId;
-  Product.findById(id)
-    .select('name price _id productImage')
-    .exec()
-    .then(doc => {
-      console.log(doc);
-      if (doc) {
-        res.status(200).json({
-          product: {
-            name: doc.name,
-            price: doc.price,
-            image: doc.productImage,
-            _id: doc._id,
-          },
-          request: {
-            message: 'Get all products',
-            type: 'GET',
-            url: 'http://localhost:3000/products',
-          },
-        });
-      } else {
-        res.status(404).json({ message: 'No valid entry for provided ID' });
-      }
     })
     .catch(err => {
       console.log(err);

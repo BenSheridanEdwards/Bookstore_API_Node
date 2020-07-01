@@ -33,14 +33,14 @@ const upload = multer({
 
 router.get('/', ProductController.get_all);
 
+router.get('/:productId', ProductController.get_product);
+
 router.post(
   '/',
   checkAuth,
   upload.single('productImage'),
   ProductController.create_product
 );
-
-router.get('/:productId', ProductController.get_product);
 
 router.patch('/:productId', checkAuth, ProductController.change_product);
 
