@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const checkAuth = require('../middleware/check-auth');
 
+const Product = require('../models/product');
+
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, './uploads/');
@@ -29,8 +31,6 @@ const upload = multer({
   },
   fileFilter,
 });
-
-const Product = require('../models/product');
 
 router.get('/', (req, res, next) => {
   Product.find()
