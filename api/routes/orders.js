@@ -13,35 +13,7 @@ router.get('/', checkAuth, OrdersController.get_all);
 
 router.post('/', checkAuth, OrdersController.create_order);
 
-router.get('/:orderId', checkAuth, (req, res, next) => {
-  Order.findById(req.params.orderId)
-    .populate('product')
-    .exec()
-    .then(order => {
-      if (!order) {
-        return res.status(404).json({
-          message: 'Order not found',
-        });
-      }
-      res.status(200).json({
-        order: {
-          product: order.product,
-          quantity: order.quantity,
-          _id: order._id,
-        },
-        request: {
-          message: 'Get all orders',
-          type: 'GET',
-          url: 'http://localhost:3000/orders',
-        },
-      });
-    })
-    .catch(err => {
-      res.status(500).json({
-        error: err,
-      });
-    });
-});
+router.get('/:orderId', checkAuth, OrdersController.get_order);
 
 router.delete('/:orderId', checkAuth, (req, res, next) => {
   Order.remove({ _id: req.params.orderId })
