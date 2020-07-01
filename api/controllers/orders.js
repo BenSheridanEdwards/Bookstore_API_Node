@@ -1,4 +1,6 @@
+const mongoose = require('mongoose');
 const Order = require('../models/order');
+const Product = require('../models/product');
 
 exports.get_all = (req, res, next) => {
   Order.find()
@@ -22,4 +24,41 @@ exports.get_all = (req, res, next) => {
     .catch(err => {
       res.status(500).json({ error: err });
     });
+};
+
+exports.create_order = (req, res, next) => {
+  Product.findById(req.body.productId).then(product => {
+    if (!product) {
+      return res.status(500).json({
+        message: 'Product not found',
+      });
+    }
+    const order = new Order({
+      _id: mongoose.Types.ObjectId(),
+      quantity: req.body.quantity,
+      product: req.body.productId,
+    });
+    order
+      .save()
+      .then(result => {
+        console.log(result);
+        res.status(201).json({
+          message: 'Order successfully created',
+          createdOrder: {
+            product: result.product,
+            quantity: result.quantity,
+          },
+          request: {
+            type: 'GET',
+            url: `http://localhost:3000/orders/${result._id}`,
+          },
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err,
+        });
+      });
+  });
 };
