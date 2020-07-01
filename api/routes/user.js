@@ -12,21 +12,6 @@ router.post('/signup', UserController.signup);
 
 router.post('/login', UserController.login);
 
-router.delete('/:userId', (req, res, next) => {
-  User.remove({ _id: req.params.userId })
-    .exec()
-    .then(result => {
-      console.log(result);
-      res.status(200).json({
-        message: 'User deleted',
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
-});
+router.delete('/:userId', UserController.delete_user);
 
 module.exports = router;
