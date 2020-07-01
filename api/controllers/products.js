@@ -96,3 +96,30 @@ exports.get_product = (req, res, next) => {
       });
     });
 };
+
+exports.change_product = (req, res, next) => {
+  const id = req.params.productId;
+  const updateOps = {};
+  for (const ops of req.body) {
+    updateOps[ops.propName] = ops.value;
+  }
+  Product.update({ _id: id }, { $set: updateOps })
+    .exec()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: 'Updated product successfully',
+        request: {
+          message: 'See updated product',
+          type: 'GET',
+          url: `http://localhost:3000/products/${id}`,
+        },
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
