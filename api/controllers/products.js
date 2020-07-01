@@ -123,3 +123,29 @@ exports.change_product = (req, res, next) => {
       });
     });
 };
+
+exports.delete_product = (req, res, next) => {
+  const id = req.params.productId;
+  Product.remove({ _id: id })
+    .exec()
+    .then(result => {
+      res.status(200).json({
+        message: 'Product deleted',
+        request: {
+          message: 'Create a new product with a post request',
+          type: 'POST',
+          url: 'http://localhost:3000/products/',
+          body: {
+            name: 'String',
+            price: 'Number',
+          },
+        },
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
