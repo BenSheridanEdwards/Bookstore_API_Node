@@ -1,4 +1,4 @@
-# Store RESTful API in Node.js
+# Shop RESTful API in Node.js
 
 RESTful API built with Node.js, Mongoose, and MongoDB
 
