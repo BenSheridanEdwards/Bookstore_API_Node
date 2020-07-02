@@ -22,7 +22,7 @@ Creates a new user, and encrypts their password with BCrypt
   
 *  **URL Params**
 
- None
+   None
 
 * **Data Params**
 
