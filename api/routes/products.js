@@ -31,6 +31,21 @@ const upload = multer({
   fileFilter,
 });
 
+/**
+ * @swagger
+ * paths:
+ *   /products/:
+ *     get:
+ *       tags: ['Products']
+ *       summary: Get all products
+ *       description: Get all products in the database
+ *       consumes:
+ *         — application/json
+ *       responses:
+ *         200:
+ *           description: Receive back all products with their name, price and ID.
+ */
+
 router.get('/', ProductController.get_all);
 
 router.get('/:productId', ProductController.get_product);
