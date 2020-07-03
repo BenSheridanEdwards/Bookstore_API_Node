@@ -5,8 +5,24 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
+const swaggerUi = require('swagger-ui-express');
 
+// Extended: http://swagger.io/specifcation/#infoObject
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Store RESTful API',
+      description: 'Online shop API',
+      contact: {
+        name: 'Ben Sheridan-Edwards',
+      },
+      servers: ['http://localhost:3000'],
+    },
+  },
+  apis: ['app.js', './api/routes/*.js'],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 const userRoutes = require('./api/routes/user');
@@ -34,6 +50,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes);
