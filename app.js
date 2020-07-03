@@ -19,7 +19,11 @@ const swaggerOptions = {
       servers: ['http://localhost:3000'],
     },
   },
-  apis: ['app.js', './api/routes/*.js'],
+  apis: [
+    './api/routes/products.js',
+    './api/routes/orders.js',
+    './api/routes/users.js',
+  ],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -50,10 +54,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use((req, res, next) => {
   const error = new Error('Not found');
