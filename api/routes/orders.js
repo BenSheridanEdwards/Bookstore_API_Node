@@ -24,6 +24,28 @@ const OrdersController = require('../controllers/orders');
 
 router.get('/', checkAuth, OrdersController.get_all);
 
+/**
+ * @swagger
+ * paths:
+ *   /orders/{orderId}:
+ *     get:
+ *       tags: ['Orders']
+ *       summary: Get an order by ID
+ *       description: Get an order by ID - For authorization, your need a bearer token from logging in. Insert bearer followed by your token into the authorization input box below. It should look like this "bearer yourTokenHere".
+ *       parameters:
+ *         - in: path
+ *           name: orderId
+ *           schema:
+ *             type: string
+ *           required: true
+ *         - in: header
+ *           name: Authorization
+ *           type: string
+ *       responses:
+ *         200:
+ *           description: Receive back all orders with the productId and quantity for each order with the respective order ID.
+ */
+
 router.get('/:orderId', checkAuth, OrdersController.get_order);
 
 router.post('/', checkAuth, OrdersController.create_order);
