@@ -97,6 +97,37 @@ router.get('/', ProductController.get_all);
 
 router.get('/:productId', ProductController.get_product);
 
+/**
+ * @swagger
+ * paths:
+ *   /products:
+ *     post:
+ *       tags: ['Products']
+ *       summary: Create a new product
+ *       description: Create a product - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
+ *       consumes:
+ *         - application/json
+ *       parameters:
+ *         - in: body
+ *           name: product
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               price:
+ *                 type: integer
+ *             example:
+ *               name: The origin of species
+ *               price: 3.59
+ *         - in: header
+ *           name: Authorization
+ *           type: string
+ *       responses:
+ *         201:
+ *           description: Product creation successful
+ */
+
 router.post(
   '/',
   checkAuth,
