@@ -1,8 +1,8 @@
-# Shop RESTful API 
+# Book Store API
 
 # Description
 
-A RESTful API for an online store.
+A RESTful API for an online book store.
 
 **Tech Stack:** *JavaScript, Node, Express, MongoDB, Mongoose*
 
