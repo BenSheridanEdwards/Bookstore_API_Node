@@ -81,6 +81,38 @@ router.get('/:orderId', checkAuth, OrdersController.get_order);
 
 router.post('/', checkAuth, OrdersController.create_order);
 
+/**
+ * @swagger
+ * paths:
+ *   /orders/{orderId}:
+ *     delete:
+ *       tags: ['Orders']
+ *       summary: Delete a order by ID
+ *       description: Delete a order - For authorization, your need a bearer token from logging in. Enter your token into the 'Authorization' input box below.
+ *       parameters:
+ *         - in: path
+ *           name: orderId
+ *           schema:
+ *             type: string
+ *           required: true
+ *         - in: header
+ *           name: Authorization
+ *           type: string
+ *       responses:
+ *         '200':
+ *           description: Order successfully deleted
+ *         '404':
+ *            description: Order not found.
+ *            content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  message:
+ *                    type: string
+ *                    description: No valid entry for provided ID
+ */
+
 router.delete('/:orderId', checkAuth, OrdersController.delete_order);
 
 module.exports = router;
