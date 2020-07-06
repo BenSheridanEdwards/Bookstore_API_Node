@@ -173,6 +173,38 @@ router.post(
 
 router.patch('/:productId', checkAuth, ProductController.change_product);
 
+/**
+ * @swagger
+ * paths:
+ *   /products/{productId}:
+ *     delete:
+ *       tags: ['Products']
+ *       summary: Delete a product by ID
+ *       description: Delete a product - For authorization, your need a bearer token from logging in. Enter your token into the 'Authorization' input box below.
+ *       parameters:
+ *         - in: path
+ *           name: productId
+ *           schema:
+ *             type: string
+ *           required: true
+ *         - in: header
+ *           name: Authorization
+ *           type: string
+ *       responses:
+ *         '200':
+ *           description: Product deleted
+ *         '404':
+ *            description: Product not found.
+ *            content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  message:
+ *                    type: string
+ *                    description: No valid entry for provided ID
+ */
+
 router.delete('/:productId', checkAuth, ProductController.delete_product);
 
 module.exports = router;
