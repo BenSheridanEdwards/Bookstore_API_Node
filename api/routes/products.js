@@ -135,6 +135,42 @@ router.post(
   ProductController.create_product
 );
 
+/**
+ * @swagger
+ * paths:
+ *   /products/{productId}:
+ *     patch:
+ *       tags: ['Products']
+ *       summary: Update a product
+ *       description: Update a product - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
+ *       consumes:
+ *         - application/json
+ *       parameters:
+ *         - in: path
+ *           name: productId
+ *           schema:
+ *             type: string
+ *           required: true
+ *         - in: body
+ *           name: product to update
+ *           description: The product values to update
+ *           schema:
+ *              type: array
+ *              items:
+ *                type: object
+ *                properties:
+ *                  propName:
+ *                    type: string
+ *                  value:
+ *                    type: string
+ *         - in: header
+ *           name: Authorization
+ *           type: string
+ *       responses:
+ *         200:
+ *           description: Product updated successfully
+ */
+
 router.patch('/:productId', checkAuth, ProductController.change_product);
 
 router.delete('/:productId', checkAuth, ProductController.delete_product);
