@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BenSheridanEdwards/Store_API_Node.git"
+    "url": "git+https://github.com/BenSheridanEdwards/Book_Store_API.git"
   },
   "author": "Ben Sheridan-Edwards",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/BenSheridanEdwards/Store_API_Node/issues"
+    "url": "https://github.com/BenSheridanEdwards/Book_Store_API/issues"
   },
-  "homepage": "https://github.com/BenSheridanEdwards/Store_API_Node#readme",
+  "homepage": "https://github.com/BenSheridanEdwards/Book_Store_API#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
