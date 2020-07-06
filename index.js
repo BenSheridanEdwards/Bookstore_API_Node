@@ -76,6 +76,4 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`App is listening on port http://localhost:${port}`);
-});
+app.listen(port, () => {});
