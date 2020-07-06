@@ -77,7 +77,8 @@ exports.login = (req, res, next) => {
             }
           );
           return res.status(200).json({
-            message: 'Auth successful',
+            message:
+              'Successfully logged in, please copy your bearer token below',
             token,
           });
         }
