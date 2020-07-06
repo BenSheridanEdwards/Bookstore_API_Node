@@ -8,6 +8,23 @@ const UserController = require('../controllers/users');
 /**
  * @swagger
  * paths:
+ *   /user/:
+ *     get:
+ *       tags: ['Users']
+ *       summary: Get all users
+ *       description: Get all users in the database
+ *       consumes:
+ *         — application/json
+ *       responses:
+ *         200:
+ *           description: Receive back all users with their email and ID.
+ */
+
+router.get('/', UserController.get_all);
+
+/**
+ * @swagger
+ * paths:
  *   /user/signup:
  *     post:
  *       tags: ['Users']
