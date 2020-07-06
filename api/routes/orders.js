@@ -85,6 +85,44 @@ router.post('/', checkAuth, OrdersController.create_order);
  * @swagger
  * paths:
  *   /orders/{orderId}:
+ *     patch:
+ *       tags: ['Orders']
+ *       summary: Update a order
+ *       description: Update a order - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
+ *       consumes:
+ *         - application/json
+ *       parameters:
+ *         - in: path
+ *           name: orderId
+ *           schema:
+ *             type: string
+ *           required: true
+ *         - in: body
+ *           name: product to order
+ *           description: The order values to update
+ *           schema:
+ *              type: array
+ *              items:
+ *                type: object
+ *                properties:
+ *                  propName:
+ *                    type: string
+ *                  value:
+ *                    type: string
+ *         - in: header
+ *           name: Authorization
+ *           type: string
+ *       responses:
+ *         200:
+ *           description: Order updated successfully
+ */
+
+router.patch('/:orderId', checkAuth, OrdersController.change_order);
+
+/**
+ * @swagger
+ * paths:
+ *   /orders/{orderId}:
  *     delete:
  *       tags: ['Orders']
  *       summary: Delete a order by ID
