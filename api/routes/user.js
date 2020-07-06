@@ -37,6 +37,39 @@ const UserController = require('../controllers/users');
 
 router.post('/signup', UserController.signup);
 
+/**
+ * @swagger
+ * paths:
+ *   /user/login:
+ *     post:
+ *       tags: ['Users']
+ *       summary: Log in as an existing user
+ *       description: Login
+ *       consumes:
+ *         - application/json
+ *       parameters:
+ *         - in: body
+ *           name: user
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *             example:
+ *               email: test@test.com
+ *               password: password
+ *       responses:
+ *         200:
+ *           description: Login successful, generates bearer token.
+ *           message: Successfully logged in, please copy your bearer token below
+ *           token: bearer token
+ *         401:
+ *           description: User doesn't exist or incorrect password provided
+ *           message: Auth failed
+ */
+
 router.post('/login', UserController.login);
 
 /**
