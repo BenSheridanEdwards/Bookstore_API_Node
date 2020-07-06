@@ -22,7 +22,7 @@ const swaggerOptions = {
   apis: [
     './api/routes/products.js',
     './api/routes/orders.js',
-    './api/routes/users.js',
+    './api/routes/user.js',
   ],
 };
 
