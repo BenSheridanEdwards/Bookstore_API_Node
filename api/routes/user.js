@@ -5,6 +5,36 @@ const checkAuth = require('../middleware/check-auth');
 
 const UserController = require('../controllers/users');
 
+/**
+ * @swagger
+ * paths:
+ *   /user/signup:
+ *     post:
+ *       tags: ['Users']
+ *       summary: Create a new user
+ *       description: Create a user
+ *       consumes:
+ *         - application/json
+ *       parameters:
+ *         - in: body
+ *           name: user
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *             example:
+ *               email: test@test.com
+ *               password: password
+ *       responses:
+ *         201:
+ *           description: User successfully created
+ *         409:
+ *           description: Email already exists, please login
+ */
+
 router.post('/signup', UserController.signup);
 
 router.post('/login', UserController.login);
