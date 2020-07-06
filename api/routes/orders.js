@@ -87,8 +87,8 @@ router.post('/', checkAuth, OrdersController.create_order);
  *   /orders/{orderId}:
  *     patch:
  *       tags: ['Orders']
- *       summary: Update a order
- *       description: Update a order - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
+ *       summary: Update an order
+ *       description: Update an order - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       consumes:
  *         - application/json
  *       parameters:
@@ -125,8 +125,8 @@ router.patch('/:orderId', checkAuth, OrdersController.change_order);
  *   /orders/{orderId}:
  *     delete:
  *       tags: ['Orders']
- *       summary: Delete a order by ID
- *       description: Delete a order - For authorization, your need a bearer token from logging in. Enter your token into the 'Authorization' input box below.
+ *       summary: Delete an order by ID
+ *       description: Delete an order - For authorization, your need a bearer token from logging in. Enter your token into the 'Authorization' input box below.
  *       parameters:
  *         - in: path
  *           name: orderId
