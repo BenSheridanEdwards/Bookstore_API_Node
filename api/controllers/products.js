@@ -48,7 +48,7 @@ exports.get_product = (req, res, next) => {
           request: {
             message: 'Get all products',
             type: 'GET',
-            url: 'http://localhost:3000/products',
+            url: `${PORT}`,
           },
         });
       } else {
