@@ -100,7 +100,7 @@ router.get('/:productId', ProductController.get_product);
 /**
  * @swagger
  * paths:
- *   /products:
+ *   /products/:
  *     post:
  *       tags: ['Products']
  *       summary: Create a new product
