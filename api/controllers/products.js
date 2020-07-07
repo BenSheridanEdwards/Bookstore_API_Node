@@ -17,7 +17,7 @@ exports.get_all = (req, res, next) => {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: `${window.location.origin}/${doc._id}`,
+            url: `${req.url}`,
           },
         })),
       });
@@ -48,7 +48,7 @@ exports.get_product = (req, res, next) => {
           request: {
             message: 'Get all products',
             type: 'GET',
-            url: `${window.location.origin}/products/`,
+            url: `${req.url}`,
           },
         });
       } else {
