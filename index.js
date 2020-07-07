@@ -70,6 +70,7 @@ app.get('/', (req, res) => {
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user', userRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use((req, res, next) => {
   const error = new Error('Not found');
@@ -85,8 +86,5 @@ app.use((error, req, res, next) => {
     },
   });
 });
-
-if (process.env.NODE_ENV === 'production') {
-}
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
