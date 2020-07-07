@@ -34,7 +34,7 @@ const orderRoutes = require('./api/routes/orders');
 const userRoutes = require('./api/routes/user');
 
 mongoose.connect(
-  `mongodb+srv://BenSE:${process.env.MONGO_ATLAS_PW}@node-store-api-vsila.mongodb.net/<dbname>?retryWrites=true&w=majority`,
+  `mongodb://user:password1@ds153352.mlab.com:53352/heroku_0qlzz1r2`,
   { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
 );
 
