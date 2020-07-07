@@ -63,7 +63,12 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'Hello World',
+    message:
+      'Welcome to my Book Store API, to use this API please navigate to the Swagger UI link below',
+    request: {
+      type: 'GET',
+      url: 'https://bse-book-store-api.herokuapp.com/api-docs/',
+    },
   });
 });
 
