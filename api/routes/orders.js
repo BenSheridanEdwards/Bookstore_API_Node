@@ -51,7 +51,7 @@ router.get('/:orderId', checkAuth, OrdersController.get_order);
 /**
  * @swagger
  * paths:
- *   /orders:
+ *   /orders/:
  *     post:
  *       tags: ['Orders']
  *       summary: Create a new order
