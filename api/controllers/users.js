@@ -33,7 +33,7 @@ exports.signup = (req, res, next) => {
       if (user.length >= 1) {
         return res.status(409).json({
           message: 'Email already exists, please login',
-          url: 'http://localhost:3000/user/login',
+          url: 'https://bse-book-store-api.herokuapp.com/users/login',
         });
       }
       bcrypt.hash(req.body.password, 10, (err, hash) => {
