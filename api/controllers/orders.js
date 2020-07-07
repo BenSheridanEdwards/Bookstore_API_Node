@@ -16,7 +16,7 @@ exports.get_all = (req, res, next) => {
           orderId: doc._id,
           request: {
             type: 'GET',
-            url: `http://localhost:3000/orders/${doc._id}`,
+            url: `https://bse-book-store-api.herokuapp.com/orders/${doc._id}`,
           },
         })),
       });
@@ -45,7 +45,7 @@ exports.get_order = (req, res, next) => {
         request: {
           message: 'Get all orders',
           type: 'GET',
-          url: 'http://localhost:3000/orders',
+          url: 'https://bse-book-store-api.herokuapp.com/orders',
         },
       });
     })
@@ -80,7 +80,7 @@ exports.create_order = (req, res, next) => {
           },
           request: {
             type: 'GET',
-            url: `http://localhost:3000/orders/${result._id}`,
+            url: `https://bse-book-store-api.herokuapp.com/${result._id}`,
           },
         });
       })
@@ -108,7 +108,7 @@ exports.change_order = (req, res, next) => {
         request: {
           message: 'See updated order',
           type: 'GET',
-          url: `http://localhost:3000/products/${id}`,
+          url: `https://bse-book-store-api.herokuapp.com/${id}`,
         },
       });
     })
@@ -129,7 +129,7 @@ exports.delete_order = (req, res, next) => {
         request: {
           message: 'Create a new order',
           type: 'POST',
-          url: 'http://localhost:3000/orders',
+          url: 'https://bse-book-store-api.herokuapp.com/orders',
           body: {
             productId: 'ID',
             quantity: 'Number',
