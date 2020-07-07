@@ -42,7 +42,7 @@ exports.get_product = (req, res, next) => {
           product: {
             name: doc.name,
             price: doc.price,
-            // image: doc.productImage,
+            image: doc.productImage,
             _id: doc._id,
           },
           request: {
