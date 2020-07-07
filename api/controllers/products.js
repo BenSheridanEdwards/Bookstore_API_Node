@@ -17,7 +17,7 @@ exports.get_all = (req, res, next) => {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: `${req.baseUrl}`,
+            url: `https://bse-book-store-api.herokuapp.com/products/${doc._id}`,
           },
         })),
       });
@@ -48,7 +48,7 @@ exports.get_product = (req, res, next) => {
           request: {
             message: 'Get all products',
             type: 'GET',
-            url: `${req}`,
+            url: 'https://bse-book-store-api.herokuapp.com/products/',
           },
         });
       } else {
@@ -84,7 +84,7 @@ exports.create_product = (req, res, next) => {
           _id: result._id,
           request: {
             type: 'GET',
-            url: `http://localhost:3000/products/${result._id}`,
+            url: `https://bse-book-store-api.herokuapp.com/products/${result._id}`,
           },
         },
       });
@@ -112,7 +112,7 @@ exports.change_product = (req, res, next) => {
         request: {
           message: 'See updated product',
           type: 'GET',
-          url: `http://localhost:3000/products/${id}`,
+          url: `https://bse-book-store-api.herokuapp.com/products/${id}`,
         },
       });
     })
@@ -134,7 +134,7 @@ exports.delete_product = (req, res, next) => {
         request: {
           message: 'Create a new product with a post request',
           type: 'POST',
-          url: 'http://localhost:3000/products/',
+          url: 'https://bse-book-store-api.herokuapp.com/products/',
           body: {
             name: 'String',
             price: 'Number',
