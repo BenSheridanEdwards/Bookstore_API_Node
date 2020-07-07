@@ -4,9 +4,31 @@ const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const PORT = process.env.PORT || 3000;
 
+// Extended: http://swagger.io/specifcation/#infoObject
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Store RESTful API',
+      description: 'Online shop API',
+      contact: {
+        name: 'Ben Sheridan-Edwards',
+      },
+      servers: ['http://localhost:3000'],
+    },
+  },
+  apis: [
+    './api/routes/products.js',
+    './api/routes/orders.js',
+    './api/routes/user.js',
+  ],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 const userRoutes = require('./api/routes/user');
