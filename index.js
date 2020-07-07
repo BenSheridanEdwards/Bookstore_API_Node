@@ -18,7 +18,10 @@ const swaggerOptions = {
       contact: {
         name: 'Ben Sheridan-Edwards',
       },
-      servers: ['http://localhost:3000'],
+      servers: [
+        'http://localhost:3000',
+        'https://bse-book-store-api.herokuapp.com',
+      ],
     },
   },
   apis: [
