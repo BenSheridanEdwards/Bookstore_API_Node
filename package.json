@@ -1,5 +1,5 @@
 {
-  "name": "store_api_node",
+  "name": "Book_Store_API",
   "version": "1.0.0",
   "description": "A Node.js Simple Shop/Store RESTful API ",
   "main": "index.js",
