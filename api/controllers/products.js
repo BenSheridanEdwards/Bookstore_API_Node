@@ -17,7 +17,8 @@ exports.get_all = (req, res, next) => {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: `http://localhost:3000/products/${doc._id}`,
+            url: `${PORT}`;
+`,
           },
         })),
       });
@@ -42,7 +43,7 @@ exports.get_product = (req, res, next) => {
           product: {
             name: doc.name,
             price: doc.price,
-            image: doc.productImage,
+            // image: doc.productImage,
             _id: doc._id,
           },
           request: {
