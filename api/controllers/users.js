@@ -12,7 +12,7 @@ exports.get_all = (req, res, next) => {
       console.log(docs);
       res.status(200).json({
         count: docs.length,
-        products: docs.map(doc => ({
+        users: docs.map(doc => ({
           email: doc.email,
           _id: doc._id,
         })),
