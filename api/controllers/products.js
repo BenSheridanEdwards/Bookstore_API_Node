@@ -17,7 +17,7 @@ exports.get_all = (req, res, next) => {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: `${req}`,
+            url: `${req.destination}`,
           },
         })),
       });
