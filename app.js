@@ -11,25 +11,37 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerOptions = {
   swaggerDefinition: {
     info: {
-      title: 'Store RESTful API',
-      description: 'Online shop API',
+      title: 'Book Store API',
+      version: '1.0.0',
+      description:
+        'Bookstore API built with Node.js, Express, MongoDB & Mongoose. Check out the code on [GitHub](https://github.com/BenSheridanEdwards/Book_Store_API).',
       contact: {
-        name: 'Ben Sheridan-Edwards',
+        name: '- Ben Sheridan Edwards (Developer)',
+        email: 'bensheridanedwards@gmail.com',
       },
-      servers: ['http://localhost:3000'],
+      servers: [
+        'http://localhost:3000',
+        'https://bse-book-store-api.herokuapp.com',
+      ],
+      externalDocs: {
+        title: 'Check out the code on GitHub',
+        description: 'Check out the code on GitHub',
+        url:
+          'https://github.com/BenSheridanEdwards/Book_Store_API/blob/master/README.md',
+      },
     },
   },
   apis: [
+    './api/routes/users.js',
     './api/routes/products.js',
     './api/routes/orders.js',
-    './api/routes/user.js',
   ],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
-const userRoutes = require('./api/routes/user');
+const userRoutes = require('./api/routes/users');
 
 mongoose.connect(
   `mongodb+srv://BenSE:${process.env.MONGO_ATLAS_PW}@node-store-api-vsila.mongodb.net/<dbname>?retryWrites=true&w=majority`,
@@ -56,7 +68,7 @@ app.use((req, res, next) => {
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
-app.use('/user', userRoutes);
+app.use('/users', userRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use((req, res, next) => {
