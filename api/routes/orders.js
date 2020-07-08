@@ -107,6 +107,23 @@ router.get('/:orderId', checkAuth, OrdersController.get_order);
  *       responses:
  *         201:
  *           description: Order successfully created
+ *           schema:
+ *             name: createdOrder
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: string
+ *                 description: The ID of the product associated with this order.
+ *               quantity:
+ *                 type: integer
+ *                 description: The requested quantity of the product for this order.
+ *               orderId:
+ *                 type: string
+ *                 description: The order ID.
+ *         404:
+ *           description: Product not found
+ *         500:
+ *           description: Error with message
  */
 
 router.post('/', checkAuth, OrdersController.create_order);
