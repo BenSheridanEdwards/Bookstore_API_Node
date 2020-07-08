@@ -76,35 +76,25 @@ router.get('/', ProductController.get_all);
  *             type: string
  *           required: true
  *       responses:
- *         '200':
- *           description: Details of the product.
- *           content:
- *             application/json:
- *               schema:
- *                 type: object
- *                 properties:
- *                   product:
- *                   type: object
- *                   properties:
- *                     name:
- *                       type: string
- *                       description: The product's name.
- *                     price:
- *                       type: integer
- *                       description: The product's price.
- *                     _id:
- *                       type: string
- *                       description: The product's ID.
- *         '404':
- *            description: Product not found.
- *            content:
- *            application/json:
- *              schema:
- *                type: object
- *                properties:
- *                  message:
- *                    type: string
- *                    description: No valid entry for provided ID
+ *         200:
+ *           description: Receive back details of the specific product related to the given productId.
+ *           schema:
+ *             name: product
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: The product's name.
+ *               price:
+ *                 type: integer
+ *                 description: The product's price.
+ *               _id:
+ *                 type: string
+ *                 description: The product's ID.
+ *         404:
+ *           description: Product not found.
+ *         500:
+ *           description: Error message.
  */
 
 router.get('/:productId', ProductController.get_product);
