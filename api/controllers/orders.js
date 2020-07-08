@@ -137,7 +137,7 @@ exports.delete_order = (req, res, next) => {
         res.status(200).json({
           message: 'Order successfully deleted.',
           request: {
-            message: 'Create a new order.',
+            message: 'Create a new order:',
             type: 'POST',
             url: 'https://bse-book-store-api.herokuapp.com/orders/',
             body: {
