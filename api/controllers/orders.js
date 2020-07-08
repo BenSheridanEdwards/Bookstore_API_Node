@@ -122,14 +122,15 @@ exports.change_order = (req, res, next) => {
 };
 
 exports.delete_order = (req, res, next) => {
-  Order.findById(req.params.orderId).then(order => {
+  const id = req.params.orderId;
+  Order.findById(id).then(order => {
     if (!order) {
       return res.status(404).json({
         message: 'Order not found.',
       });
     }
     order
-      .remove({ _id: req.params.orderId })
+      .remove({ _id: id })
       .then(result => {
         console.log(result);
         res.status(200).json({
