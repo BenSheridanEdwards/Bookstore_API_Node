@@ -104,7 +104,7 @@ exports.change_order = (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(200).json({
-        message: 'Order updated successfully',
+        message: 'Order successfully updated',
         request: {
           message: 'See updated order',
           type: 'GET',
