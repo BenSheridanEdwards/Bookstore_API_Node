@@ -33,7 +33,7 @@ exports.get_order = (req, res, next) => {
     .then(order => {
       if (!order) {
         return res.status(404).json({
-          message: 'Order not found',
+          message: 'Order not found.',
         });
       }
       res.status(200).json({
@@ -43,7 +43,7 @@ exports.get_order = (req, res, next) => {
           _id: order._id,
         },
         request: {
-          message: 'Get all orders',
+          message: 'Get all orders.',
           type: 'GET',
           url: 'https://bse-book-store-api.herokuapp.com/orders',
         },
@@ -60,7 +60,7 @@ exports.create_order = (req, res, next) => {
   Product.findById(req.body.productId).then(product => {
     if (!product) {
       return res.status(404).json({
-        message: 'Product not found',
+        message: 'Product not found.',
       });
     }
     const order = new Order({
@@ -73,7 +73,7 @@ exports.create_order = (req, res, next) => {
       .then(result => {
         console.log(result);
         res.status(201).json({
-          message: 'Order successfully created',
+          message: 'Order successfully created.',
           createdOrder: {
             productId: result.product,
             quantity: result.quantity,
@@ -105,9 +105,9 @@ exports.change_order = (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(200).json({
-        message: 'Order successfully updated',
+        message: 'Order successfully updated.',
         request: {
-          message: 'See updated order',
+          message: 'See updated order:',
           type: 'GET',
           url: `https://bse-book-store-api.herokuapp.com/${id}`,
         },
@@ -125,7 +125,7 @@ exports.delete_order = (req, res, next) => {
   Order.findById(req.params.orderId).then(order => {
     if (!order) {
       return res.status(404).json({
-        message: 'Order not found',
+        message: 'Order not found.',
       });
     }
     order
@@ -133,9 +133,9 @@ exports.delete_order = (req, res, next) => {
       .then(result => {
         console.log(result);
         res.status(200).json({
-          message: 'Order successfully deleted',
+          message: 'Order successfully deleted.',
           request: {
-            message: 'Create a new order',
+            message: 'Create a new order.',
             type: 'POST',
             url: 'https://bse-book-store-api.herokuapp.com/orders',
             body: {
