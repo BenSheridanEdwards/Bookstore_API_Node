@@ -73,7 +73,7 @@ exports.create_product = (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(201).json({
-        message: 'Product creation successful',
+        message: 'Product creation successful.',
         createdProduct: {
           name: result.name,
           price: result.price,
@@ -105,9 +105,9 @@ exports.change_product = (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(200).json({
-        message: 'Product updated successfully',
+        message: 'Product updated successfully.',
         request: {
-          message: 'See updated product',
+          message: 'See updated product:',
           type: 'GET',
           url: `https://bse-book-store-api.herokuapp.com/products/${id}`,
         },
@@ -158,9 +158,9 @@ exports.delete_product = (req, res, next) => {
     .exec()
     .then(result => {
       res.status(200).json({
-        message: 'Product deleted',
+        message: 'Product deleted.',
         request: {
-          message: 'Create a new product with a post request',
+          message: 'Create a new product:',
           type: 'POST',
           url: 'https://bse-book-store-api.herokuapp.com/products/',
           body: {
