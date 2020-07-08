@@ -147,8 +147,7 @@ router.post('/', checkAuth, OrdersController.create_order);
  *             type: string
  *           required: true
  *         - in: body
- *           name: Product to order.
- *           description: The order values to update.
+ *           name: Order properties to update.
  *           schema:
  *              type: array
  *              items:
