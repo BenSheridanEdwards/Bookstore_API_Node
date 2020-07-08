@@ -34,7 +34,7 @@ const OrdersController = require('../controllers/orders');
  *                 type: string
  *                 description: The order ID.
  *         500:
- *           description: Error with message.
+ *           description: Error message.
  */
 
 router.get('/', checkAuth, OrdersController.get_all);
@@ -73,7 +73,7 @@ router.get('/', checkAuth, OrdersController.get_all);
  *                 type: string
  *                 description: The order ID.
  *         500:
- *           description: Error with message.
+ *           description: Error message.
  */
 
 router.get('/:orderId', checkAuth, OrdersController.get_order);
@@ -123,7 +123,7 @@ router.get('/:orderId', checkAuth, OrdersController.get_order);
  *         404:
  *           description: Product not found.
  *         500:
- *           description: Error with message.
+ *           description: Error message.
  */
 
 router.post('/', checkAuth, OrdersController.create_order);
