@@ -11,8 +11,8 @@ const UserController = require('../controllers/users');
  *   /users/:
  *     get:
  *       tags: ['Users']
- *       summary: Get all users
- *       description: Get all users in the database
+ *       summary: Get all users.
+ *       description: Get all users in the database.
  *       parameters:
  *         - in: header
  *           name: Authorization
