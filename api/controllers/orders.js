@@ -122,25 +122,34 @@ exports.change_order = (req, res, next) => {
 };
 
 exports.delete_order = (req, res, next) => {
-  Order.remove({ _id: req.params.orderId })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        message: 'Order successfully deleted',
-        request: {
-          message: 'Create a new order',
-          type: 'POST',
-          url: 'https://bse-book-store-api.herokuapp.com/orders',
-          body: {
-            productId: 'ID',
-            quantity: 'Number',
+  Order.findById(req.params.orderId).then(order => {
+    if (!order) {
+      return res.status(404).json({
+        message: 'Order not found',
+      });
+    }
+    order
+      .remove({ _id: req.params.orderId })
+      .then(result => {
+        console.log(result);
+        res.status(200).json({
+          message: 'Order successfully deleted',
+          request: {
+            message: 'Create a new order',
+            type: 'POST',
+            url: 'https://bse-book-store-api.herokuapp.com/orders',
+            body: {
+              productId: 'ID',
+              quantity: 'Number',
+            },
           },
-        },
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err,
+        });
       });
-    })
-    .catch(err => {
-      res.status(500).json({
-        error: err,
-      });
-    });
+  });
 };
