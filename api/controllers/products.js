@@ -13,8 +13,8 @@ exports.get_all = (req, res, next) => {
         products: docs.map(doc => ({
           name: doc.name,
           price: doc.price,
-          image: doc.productImage,
-          _id: doc._id,
+          // image: doc.productImage,
+          productId: doc._id,
           request: {
             type: 'GET',
             url: `https://bse-book-store-api.herokuapp.com/products/${doc._id}`,
