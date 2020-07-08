@@ -13,14 +13,28 @@ const UserController = require('../controllers/users');
  *       tags: ['Users']
  *       summary: Get all users
  *       description: Get all users in the database
- *       consumes:
- *         — application/json
+ *       parameters:
+ *         - in: header
+ *           name: Authorization
+ *           type: string
  *       responses:
  *         200:
  *           description: Receive back all users with their email and ID.
+ *           schema:
+ *             name: users
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: The user's email.
+ *               userId:
+ *                 type: string
+ *                 description: The user's ID.
+ *         500:
+ *           description: Error message.
  */
 
-router.get('/', UserController.get_all);
+router.get('/', checkAuth, UserController.get_all);
 
 /**
  * @swagger
