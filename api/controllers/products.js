@@ -105,7 +105,7 @@ exports.change_product = (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(200).json({
-        message: 'Product updated successfully.',
+        message: 'Product successfully updated.',
         request: {
           message: 'See updated product:',
           type: 'GET',
