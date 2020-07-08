@@ -161,7 +161,9 @@ router.post('/', checkAuth, OrdersController.create_order);
  *           type: string
  *       responses:
  *         200:
- *           description: Order updated successfully
+ *           description: Order successfully updated
+ *         500:
+ *           description: Error message
  */
 
 router.patch('/:orderId', checkAuth, OrdersController.change_order);
