@@ -39,11 +39,24 @@ const upload = multer({
  *       tags: ['Products']
  *       summary: Get all products
  *       description: Get all products in the database
- *       consumes:
- *         — application/json
  *       responses:
  *         200:
  *           description: Receive back all products with their name, price and ID.
+ *           schema:
+ *             name: products
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: The product's name.
+ *               price:
+ *                 type: integer
+ *                 description: The product's price.
+ *               productId:
+ *                 type: string
+ *                 description: The product's ID.
+ *         500:
+ *           description: Error message.
  */
 
 router.get('/', ProductController.get_all);
