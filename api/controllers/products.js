@@ -80,6 +80,7 @@ exports.create_product = (req, res, next) => {
           // image: result.productImage,
           _id: result._id,
           request: {
+            message: 'See created product:'
             type: 'GET',
             url: `https://bse-book-store-api.herokuapp.com/products/${result._id}`,
           },
@@ -136,7 +137,7 @@ exports.delete_product = (req, res, next) => {
         res.status(200).json({
           message: 'Product successfully deleted.',
           request: {
-            message: 'Create a new product.',
+            message: 'Create a new product:',
             type: 'POST',
             url: 'https://bse-book-store-api.herokuapp.com/products/',
             body: {
