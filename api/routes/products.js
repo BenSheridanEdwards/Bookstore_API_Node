@@ -127,7 +127,7 @@ router.get('/:productId', ProductController.get_product);
  *           type: string
  *       responses:
  *         201:
- *           description: Product creation successful
+ *           description: Product successfully created
  *           schema:
  *             name: createdProduct
  *             type: object
