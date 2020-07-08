@@ -58,7 +58,22 @@ router.get('/', checkAuth, OrdersController.get_all);
  *           type: string
  *       responses:
  *         200:
- *           description: Receive back all orders with the productId and quantity for each order with the respective order ID.
+ *           description: Receive back details of the specific order related to the given orderId.
+ *           schema:
+ *             name: order
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: string
+ *                 description: The ID of the product associated with this order.
+ *               quantity:
+ *                 type: integer
+ *                 description: The requested quantity of the product for this order.
+ *               orderId:
+ *                 type: string
+ *                 description: The order ID.
+ *         500:
+ *           description: Error with message
  */
 
 router.get('/:orderId', checkAuth, OrdersController.get_order);

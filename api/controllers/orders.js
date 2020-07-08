@@ -38,7 +38,7 @@ exports.get_order = (req, res, next) => {
       }
       res.status(200).json({
         order: {
-          product: order.product,
+          productId: order.product,
           quantity: order.quantity,
           _id: order._id,
         },
