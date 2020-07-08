@@ -210,18 +210,20 @@ router.patch('/:productId', checkAuth, ProductController.change_product);
  *           name: Authorization
  *           type: string
  *       responses:
- *         '200':
- *           description: Product deleted
- *         '404':
- *            description: Product not found.
- *            content:
- *            application/json:
- *              schema:
- *                type: object
- *                properties:
- *                  message:
- *                    type: string
- *                    description: No valid entry for provided ID
+ *         200:
+ *           description: Product successfully deleted.
+ *         404:
+ *           description: Product not found.
+ *           content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   description: No valid entry for provided ID
+ *         500:
+ *           description: Error message.
  */
 
 router.delete('/:productId', checkAuth, ProductController.delete_product);
