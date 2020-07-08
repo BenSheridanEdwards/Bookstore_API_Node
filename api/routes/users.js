@@ -62,6 +62,19 @@ router.get('/', checkAuth, UserController.get_all);
  *       responses:
  *         201:
  *           description: User successfully created
+ *           schema:
+ *             name: createdUser
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: The user's email
+ *               password:
+ *                 type: string
+ *                 description: Will always say 'encrypted'.
+ *               userId:
+ *                 type: string
+ *                 description: The user's ID
  *         409:
  *           description: Email already exists, please login
  */
