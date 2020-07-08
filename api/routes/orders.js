@@ -198,6 +198,8 @@ router.patch('/:orderId', checkAuth, OrdersController.change_order);
  *                  message:
  *                    type: string
  *                    description: No valid entry for provided ID.
+ *         '500':
+ *           description: Error message.
  */
 
 router.delete('/:orderId', checkAuth, OrdersController.delete_order);
