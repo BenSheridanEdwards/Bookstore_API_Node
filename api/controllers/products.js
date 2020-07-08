@@ -123,57 +123,34 @@ exports.change_product = (req, res, next) => {
 
 exports.delete_product = (req, res, next) => {
   const id = req.params.productId;
-  // Product.findById(id).then(product => {
-  //   if (!product) {
-  //     return res.status(404).json({
-  //       message: 'Product not found.',
-  //     });
-  //   }
-  //   product
-  //     .remove({ _id: id })
-  //     .then(result => {
-  //       console.log(result);
-  //       res.status(200).json({
-  //         message: 'Product successfully deleted.',
-  //         request: {
-  //           message: 'Create a new product.',
-  //           type: 'POST',
-  //           url: 'https://bse-book-store-api.herokuapp.com/products/',
-  //           body: {
-  //             name: 'String',
-  //             price: 'Number',
-  //           },
-  //         },
-  //       });
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       res.status(500).json({
-  //         error: err,
-  //       });
-  //     });
-  // });
-
-  Product.remove({ _id: id })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        message: 'Product deleted.',
-        request: {
-          message: 'Create a new product:',
-          type: 'POST',
-          url: 'https://bse-book-store-api.herokuapp.com/products/',
-          body: {
-            name: 'String',
-            price: 'Number',
+  Product.findById(id).then(product => {
+    if (!product) {
+      return res.status(404).json({
+        message: 'Product not found.',
+      });
+    }
+    product
+      .remove({ _id: id })
+      .then(result => {
+        console.log(result);
+        res.status(200).json({
+          message: 'Product successfully deleted.',
+          request: {
+            message: 'Create a new product.',
+            type: 'POST',
+            url: 'https://bse-book-store-api.herokuapp.com/products/',
+            body: {
+              name: 'String',
+              price: 'Number',
+            },
           },
-        },
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err,
+        });
       });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
+  });
 };
