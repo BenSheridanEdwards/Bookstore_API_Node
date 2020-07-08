@@ -128,6 +128,21 @@ router.get('/:productId', ProductController.get_product);
  *       responses:
  *         201:
  *           description: Product creation successful
+ *           schema:
+ *             name: createdProduct
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: The product's name
+ *               price:
+ *                 type: integer
+ *                 description: The product's price
+ *               productId:
+ *                 type: string
+ *                 description: The product's ID.
+ *         500:
+ *           description: Error message.
  */
 
 router.post(
