@@ -187,9 +187,9 @@ router.patch('/:orderId', checkAuth, OrdersController.change_order);
  *           name: Authorization
  *           type: string
  *       responses:
- *         '200':
+ *         200:
  *           description: Order successfully deleted.
- *         '404':
+ *         404:
  *            description: Order not found.
  *            content:
  *            application/json:
@@ -199,7 +199,7 @@ router.patch('/:orderId', checkAuth, OrdersController.change_order);
  *                  message:
  *                    type: string
  *                    description: No valid entry for provided ID.
- *         '500':
+ *         500:
  *           description: Error message.
  */
 
