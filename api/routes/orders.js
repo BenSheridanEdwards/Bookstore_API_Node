@@ -12,7 +12,7 @@ const OrdersController = require('../controllers/orders');
  *     get:
  *       tags: ['Orders']
  *       summary: Get all orders
- *       description: Get all orders in the database - For authorization, your need a bearer token from logging in. Insert bearer followed by your token into the authorization input box below. It should look like this "bearer yourTokenHere".
+ *       description: Get all orders in the database - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       parameters:
  *         - in: header
  *           name: Authorization
@@ -46,7 +46,7 @@ router.get('/', checkAuth, OrdersController.get_all);
  *     get:
  *       tags: ['Orders']
  *       summary: Get an order by ID.
- *       description: Get an order by ID - For authorization, your need a bearer token from logging in. Insert bearer followed by your token into the authorization input box below. It should look like this "bearer yourTokenHere".
+ *       description: Get an order by ID - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       parameters:
  *         - in: path
  *           name: orderId
