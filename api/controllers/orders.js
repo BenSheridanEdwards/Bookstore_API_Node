@@ -27,7 +27,8 @@ exports.get_all = (req, res, next) => {
 };
 
 exports.get_order = (req, res, next) => {
-  Order.findById(req.params.orderId)
+  const id = req.params.orderId;
+  Order.findById(id)
     .populate('product')
     .exec()
     .then(order => {
