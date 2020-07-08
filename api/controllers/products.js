@@ -78,7 +78,7 @@ exports.create_product = (req, res, next) => {
           name: result.name,
           price: result.price,
           // image: result.productImage,
-          _id: result._id,
+          productId: result._id,
           request: {
             message: 'See created product:',
             type: 'GET',
