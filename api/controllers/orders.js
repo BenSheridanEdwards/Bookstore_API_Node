@@ -75,8 +75,9 @@ exports.create_order = (req, res, next) => {
         res.status(201).json({
           message: 'Order successfully created',
           createdOrder: {
-            product: result.product,
+            productId: result.product,
             quantity: result.quantity,
+            orderId: result.orderId,
           },
           request: {
             type: 'GET',
