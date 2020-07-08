@@ -34,7 +34,7 @@ const OrdersController = require('../controllers/orders');
  *                 type: string
  *                 description: The order ID.
  *         500:
- *           description: Error with message
+ *           description: Error with message.
  */
 
 router.get('/', checkAuth, OrdersController.get_all);
@@ -45,7 +45,7 @@ router.get('/', checkAuth, OrdersController.get_all);
  *   /orders/{orderId}:
  *     get:
  *       tags: ['Orders']
- *       summary: Get an order by ID
+ *       summary: Get an order by ID.
  *       description: Get an order by ID - For authorization, your need a bearer token from logging in. Insert bearer followed by your token into the authorization input box below. It should look like this "bearer yourTokenHere".
  *       parameters:
  *         - in: path
@@ -73,7 +73,7 @@ router.get('/', checkAuth, OrdersController.get_all);
  *                 type: string
  *                 description: The order ID.
  *         500:
- *           description: Error with message
+ *           description: Error with message.
  */
 
 router.get('/:orderId', checkAuth, OrdersController.get_order);
@@ -84,7 +84,7 @@ router.get('/:orderId', checkAuth, OrdersController.get_order);
  *   /orders/:
  *     post:
  *       tags: ['Orders']
- *       summary: Create a new order
+ *       summary: Create a new order.
  *       description: Create an order - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       consumes:
  *         - application/json
@@ -106,7 +106,7 @@ router.get('/:orderId', checkAuth, OrdersController.get_order);
  *           type: string
  *       responses:
  *         201:
- *           description: Order successfully created
+ *           description: Order successfully created.
  *           schema:
  *             name: createdOrder
  *             type: object
@@ -121,9 +121,9 @@ router.get('/:orderId', checkAuth, OrdersController.get_order);
  *                 type: string
  *                 description: The order ID.
  *         404:
- *           description: Product not found
+ *           description: Product not found.
  *         500:
- *           description: Error with message
+ *           description: Error with message.
  */
 
 router.post('/', checkAuth, OrdersController.create_order);
@@ -134,7 +134,7 @@ router.post('/', checkAuth, OrdersController.create_order);
  *   /orders/{orderId}:
  *     patch:
  *       tags: ['Orders']
- *       summary: Update an order
+ *       summary: Update an order.
  *       description: Update an order - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       consumes:
  *         - application/json
@@ -145,8 +145,8 @@ router.post('/', checkAuth, OrdersController.create_order);
  *             type: string
  *           required: true
  *         - in: body
- *           name: product to order
- *           description: The order values to update
+ *           name: Product to order.
+ *           description: The order values to update.
  *           schema:
  *              type: array
  *              items:
@@ -161,9 +161,9 @@ router.post('/', checkAuth, OrdersController.create_order);
  *           type: string
  *       responses:
  *         200:
- *           description: Order successfully updated
+ *           description: Order successfully updated.
  *         500:
- *           description: Error message
+ *           description: Error message.
  */
 
 router.patch('/:orderId', checkAuth, OrdersController.change_order);
@@ -174,7 +174,7 @@ router.patch('/:orderId', checkAuth, OrdersController.change_order);
  *   /orders/{orderId}:
  *     delete:
  *       tags: ['Orders']
- *       summary: Delete an order by ID
+ *       summary: Delete an order by ID.
  *       description: Delete an order - For authorization, your need a bearer token from logging in. Enter your token into the 'Authorization' input box below.
  *       parameters:
  *         - in: path
@@ -187,7 +187,7 @@ router.patch('/:orderId', checkAuth, OrdersController.change_order);
  *           type: string
  *       responses:
  *         '200':
- *           description: Order successfully deleted
+ *           description: Order successfully deleted.
  *         '404':
  *            description: Order not found.
  *            content:
@@ -197,7 +197,7 @@ router.patch('/:orderId', checkAuth, OrdersController.change_order);
  *                properties:
  *                  message:
  *                    type: string
- *                    description: No valid entry for provided ID
+ *                    description: No valid entry for provided ID.
  */
 
 router.delete('/:orderId', checkAuth, OrdersController.delete_order);
