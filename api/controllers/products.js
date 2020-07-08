@@ -73,7 +73,7 @@ exports.create_product = (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(201).json({
-        message: 'Product creation successful.',
+        message: 'Product successfully created.',
         createdProduct: {
           name: result.name,
           price: result.price,
