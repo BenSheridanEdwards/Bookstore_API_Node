@@ -55,14 +55,13 @@ router.get('/', ProductController.get_all);
  *     get:
  *       tags: ['Products']
  *       summary: Get a product by ID
+ *       description: Get an order by ID
  *       parameters:
- *       - in: path
- *         name: ProductId
- *         schema:
- *           type: string
- *         required: true
- *       consumes:
- *         - application/json
+ *         - in: path
+ *           name: productId
+ *           schema:
+ *             type: string
+ *           required: true
  *       responses:
  *         '200':
  *           description: Details of the product.
