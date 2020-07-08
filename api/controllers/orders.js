@@ -59,7 +59,7 @@ exports.get_order = (req, res, next) => {
 exports.create_order = (req, res, next) => {
   Product.findById(req.body.productId).then(product => {
     if (!product) {
-      return res.status(500).json({
+      return res.status(404).json({
         message: 'Product not found',
       });
     }
