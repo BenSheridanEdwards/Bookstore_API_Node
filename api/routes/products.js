@@ -169,8 +169,7 @@ router.post(
  *             type: string
  *           required: true
  *         - in: body
- *           name: product to update
- *           description: The product values to update
+ *           name:  Product properties to update
  *           schema:
  *              type: array
  *              items:
@@ -185,7 +184,10 @@ router.post(
  *           type: string
  *       responses:
  *         200:
- *           description: Product updated successfully
+ *           description: Product successfully updated.
+ *         500:
+ *           description: Error message.
+ *
  */
 
 router.patch('/:productId', checkAuth, ProductController.change_product);
