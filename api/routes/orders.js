@@ -72,6 +72,8 @@ router.get('/', checkAuth, OrdersController.get_all);
  *               orderId:
  *                 type: string
  *                 description: The order ID.
+ *         404:
+ *           description: Order not found.
  *         500:
  *           description: Error message.
  */
