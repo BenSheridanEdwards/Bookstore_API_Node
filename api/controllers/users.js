@@ -54,9 +54,9 @@ exports.signup = (req, res, next) => {
             res.status(201).json({
               message: 'User successfully created',
               createdUser: {
-                _id: result._id,
                 email: result.email,
                 password: 'encrypted',
+                userId: result._id,
               },
             });
           })
