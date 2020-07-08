@@ -45,7 +45,7 @@ exports.get_order = (req, res, next) => {
         request: {
           message: 'Get all orders.',
           type: 'GET',
-          url: 'https://bse-book-store-api.herokuapp.com/orders',
+          url: 'https://bse-book-store-api.herokuapp.com/orders/',
         },
       });
     })
@@ -138,7 +138,7 @@ exports.delete_order = (req, res, next) => {
           request: {
             message: 'Create a new order.',
             type: 'POST',
-            url: 'https://bse-book-store-api.herokuapp.com/orders',
+            url: 'https://bse-book-store-api.herokuapp.com/orders/',
             body: {
               productId: 'ID',
               quantity: 'Number',
