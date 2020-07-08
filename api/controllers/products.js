@@ -80,7 +80,7 @@ exports.create_product = (req, res, next) => {
           // image: result.productImage,
           _id: result._id,
           request: {
-            message: 'See created product:'
+            message: 'See created product:',
             type: 'GET',
             url: `https://bse-book-store-api.herokuapp.com/products/${result._id}`,
           },

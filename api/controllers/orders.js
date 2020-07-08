@@ -81,7 +81,7 @@ exports.create_order = (req, res, next) => {
             orderId: result.orderId,
           },
           request: {
-            message: 'See created order:'
+            message: 'See created order:',
             type: 'GET',
             url: `https://bse-book-store-api.herokuapp.com/${result._id}`,
           },
