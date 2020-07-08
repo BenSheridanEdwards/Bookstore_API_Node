@@ -19,7 +19,22 @@ const OrdersController = require('../controllers/orders');
  *           type: string
  *       responses:
  *         200:
- *           description: Receive back all orders with the productId and quantity for each order with the respective order ID.
+ *           description: Receive back all orders with the product(Id), quantity, and orderId for each order.
+ *           schema:
+ *             name: orders
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: string
+ *                 description: The ID of the product associated with this order.
+ *               quantity:
+ *                 type: integer
+ *                 description: The requested quantity of the product for this order.
+ *               orderId:
+ *                 type: string
+ *                 description: The order ID.
+ *         500:
+ *           description: Error with message
  */
 
 router.get('/', checkAuth, OrdersController.get_all);

@@ -11,7 +11,7 @@ exports.get_all = (req, res, next) => {
       res.status(200).json({
         count: docs.length,
         orders: docs.map(doc => ({
-          product: doc.product,
+          productId: doc.product,
           quantity: doc.quantity,
           orderId: doc._id,
           request: {
