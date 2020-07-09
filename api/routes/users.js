@@ -134,9 +134,9 @@ router.post('/login', UserController.login);
  *           name: Authorization
  *           type: string
  *       responses:
- *         '200':
- *           description: User successfully deleted
- *         '404':
+ *         200:
+ *           description: User successfully deleted.
+ *         404:
  *            description: User not found.
  *            content:
  *            application/json:
@@ -145,7 +145,9 @@ router.post('/login', UserController.login);
  *                properties:
  *                  message:
  *                    type: string
- *                    description: No valid entry for provided ID
+ *                    description: No valid entry for provided ID.
+ *         500:
+ *           description: Error message.
  */
 
 router.delete('/:userId', checkAuth, UserController.delete_user);
