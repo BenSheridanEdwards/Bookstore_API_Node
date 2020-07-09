@@ -118,18 +118,26 @@ exports.login = (req, res, next) => {
 };
 
 exports.delete_user = (req, res, next) => {
-  User.remove({ _id: req.params.userId })
-    .exec()
-    .then(result => {
-      console.log(result);
-      res.status(200).json({
-        message: 'User successfully deleted',
+  const id = req.params.userId;
+  User.findByIs(id).then(user => {
+    if (!user) {
+      return res.status(404).json({
+        message: 'User not found.',
       });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
+    }
+    user
+      .remove({ _id: id })
+      .then(result => {
+        console.log(result);
+        res.status(200).json({
+          message: 'User successfully deleted',
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err,
+        });
       });
-    });
+  });
 };
