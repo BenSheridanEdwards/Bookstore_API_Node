@@ -11,7 +11,7 @@ const OrdersController = require('../controllers/orders');
  *   /orders/:
  *     get:
  *       tags: ['Orders']
- *       summary: Get all orders
+ *       summary: Get all orders.
  *       description: Get all orders in the database - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       parameters:
  *         - in: header

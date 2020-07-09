@@ -37,8 +37,7 @@ const upload = multer({
  *   /products/:
  *     get:
  *       tags: ['Products']
- *       summary: Get all products
- *       description: Get all products in the database
+ *       summary: Get all products.
  *       responses:
  *         200:
  *           description: Receive back all products with their name, price and ID.
@@ -67,8 +66,7 @@ router.get('/', ProductController.get_all);
  *   /products/{productId}:
  *     get:
  *       tags: ['Products']
- *       summary: Get a product by ID
- *       description: Get an order by ID
+ *       summary: Get a product by ID.
  *       parameters:
  *         - in: path
  *           name: productId
@@ -105,7 +103,7 @@ router.get('/:productId', ProductController.get_product);
  *   /products/:
  *     post:
  *       tags: ['Products']
- *       summary: Create a new product
+ *       summary: Create a new product.
  *       description: Create a product - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       consumes:
  *         - application/json
@@ -158,7 +156,7 @@ router.post(
  *   /products/{productId}:
  *     patch:
  *       tags: ['Products']
- *       summary: Update a product
+ *       summary: Update a product.
  *       description: Update a product - For authorization, your need a bearer token from logging in. Enter your token into the input box below.
  *       consumes:
  *         - application/json
@@ -169,7 +167,7 @@ router.post(
  *             type: string
  *           required: true
  *         - in: body
- *           name:  Product properties to update
+ *           name:  Product properties to update.
  *           schema:
  *              type: array
  *              items:
@@ -198,7 +196,7 @@ router.patch('/:productId', checkAuth, ProductController.change_product);
  *   /products/{productId}:
  *     delete:
  *       tags: ['Products']
- *       summary: Delete a product by ID
+ *       summary: Delete a product by ID.
  *       description: Delete a product - For authorization, your need a bearer token from logging in. Enter your token into the 'Authorization' input box below.
  *       parameters:
  *         - in: path

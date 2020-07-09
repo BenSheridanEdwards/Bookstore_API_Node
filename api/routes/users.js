@@ -42,8 +42,7 @@ router.get('/', checkAuth, UserController.get_all);
  *   /users/signup:
  *     post:
  *       tags: ['Users']
- *       summary: Create a new user
- *       description: Create a user
+ *       summary: Create a new user.
  *       consumes:
  *         - application/json
  *       parameters:
@@ -61,22 +60,22 @@ router.get('/', checkAuth, UserController.get_all);
  *               password: password
  *       responses:
  *         201:
- *           description: User successfully created
+ *           description: User successfully created.
  *           schema:
  *             name: createdUser
  *             type: object
  *             properties:
  *               email:
  *                 type: string
- *                 description: The user's email
+ *                 description: The user's email.
  *               password:
  *                 type: string
  *                 description: Will always say 'encrypted'.
  *               userId:
  *                 type: string
- *                 description: The user's ID
+ *                 description: The user's ID.
  *         409:
- *           description: Email already exists, please login
+ *           description: Email already exists, please login.
  */
 
 router.post('/signup', UserController.signup);
@@ -87,8 +86,7 @@ router.post('/signup', UserController.signup);
  *   /users/login:
  *     post:
  *       tags: ['Users']
- *       summary: Log in as an existing user
- *       description: Login
+ *       summary: Login as an existing user.
  *       consumes:
  *         - application/json
  *       parameters:
@@ -107,11 +105,11 @@ router.post('/signup', UserController.signup);
  *       responses:
  *         200:
  *           description: Login successful, generates bearer token.
- *           message: Successfully logged in, please copy your bearer token below
+ *           message: Successfully logged in, please copy your bearer token below.
  *           token: bearer token
  *         401:
- *           description: User doesn't exist or incorrect password provided
- *           message: Auth failed
+ *           description: User doesn't exist or incorrect password provided.
+ *           message: Auth failed.
  */
 
 router.post('/login', UserController.login);
@@ -122,7 +120,7 @@ router.post('/login', UserController.login);
  *   /users/{userId}:
  *     delete:
  *       tags: ['Users']
- *       summary: Delete a user by ID
+ *       summary: Delete a user by ID.
  *       description: Delete a user - For authorization, your need a bearer token from logging in. Enter your token into the 'Authorization' input box below.
  *       parameters:
  *         - in: path
