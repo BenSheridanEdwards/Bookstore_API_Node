@@ -1,4 +1,4 @@
-# Book Store API
+# Bookstore API
 
 # Description
 
