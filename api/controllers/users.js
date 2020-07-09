@@ -119,7 +119,7 @@ exports.login = (req, res, next) => {
 
 exports.delete_user = (req, res, next) => {
   const id = req.params.userId;
-  User.findByIs(id).then(user => {
+  User.findById(id).then(user => {
     if (!user) {
       return res.status(404).json({
         message: 'User not found.',
