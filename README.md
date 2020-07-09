@@ -1,5 +1,7 @@
 # Bookstore API
 
+[![CircleCI](https://circleci.com/gh/BenSheridanEdwards/Bookstore_API_Node.svg?style=svg)](https://circleci.com/gh/BenSheridanEdwards/Bookstore_API_Node)
+
 # Description
 
 A RESTful API for an online book store.
