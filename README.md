@@ -2,7 +2,9 @@
 
 [![CircleCI](https://circleci.com/gh/BenSheridanEdwards/Bookstore_API_Node.svg?style=svg)](https://circleci.com/gh/BenSheridanEdwards/Bookstore_API_Node)
 
-# Description
+[Description](#description) | [Routes](#routes)
+
+## <a name="description">Description</a>
 
 A RESTful API for an online book store.
 
@@ -12,6 +14,6 @@ A RESTful API for an online book store.
 
 ![Swagger UI Header](https://github.com/BenSheridanEdwards/Book_Store_API/blob/master/images/Showcase/BookStoreAPI-SwaggerHeader.png)
 
-# Routes 
+## <a name="routes">Routes</a>
 
 ![All routes](https://github.com/BenSheridanEdwards/Book_Store_API/blob/master/images/Showcase/BookStoreAPI-AllRoutes.png)
